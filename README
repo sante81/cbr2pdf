@@ -1,0 +1,11 @@
+cdr2pdf - Convert comic book reader files to pdf format.
+
+Usage: Execute cdr2pdf file in same folder of files.
+
+Author: Mauro Baraldi <mauro.baraldi@gmail.com>
+Version: 0.0.1
+License: GPL2
+
+Manifesto: I make this script just to read cbr files into my e-reader Sony PRS-505.
+
+Happy Hacking
