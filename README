@@ -8,4 +8,6 @@ License: GPL2
 
 Manifesto: I make this script just to read cbr files into my e-reader Sony PRS-505.
 
+Pre-req: ImageMagick [http://www.imagemagick.org/script/index.php]
+
 Happy Hacking
