@@ -12,17 +12,19 @@ CONVERT=`whereis convert | awk '{print $2}'`
 UNRAR=`whereis unrar | awk '{print $2}'`
 SUBCHAR="_"
 
-# Replace whitespaces in filenames for other defined in $SUBCHAR.
-rename "s/ /$SUBCHAR/g" *.cbr
-
-echo `pwd`
-
-for COMIC in `ls *.cbr`;
+for COMIC in "`ls *.cbr`";
     do
     TEMP=${COMIC%.*}
-    mkdir $TEMP              # Create a temp dir with filename (without extension).
-    $UNRAR e $COMIC $TEMP/   # Extract .cbr files images (jpg) to temp dir.
-    $CONVERT $TEMP/*.jpg $TEMP.pdf
-    rm -rf $TEMP/
-    echo "Comic $TEMP converted sucefully"
+    mkdir "$TEMP"              # Create a temp dir with filename (without extension).
+    
+    echo "Start getting image from cbr file"
+    $UNRAR e "$COMIC" "$TEMP/"   # Extract .cbr files images (jpg) to temp dir.
+    
+    echo "Start converting image to pdf file"
+    $CONVERT "$TEMP/*.jpg" "$TEMP.pdf"
+   
+    echo "Clean temp directory"
+    rm -rf "$TEMP/"
+    
+    echo "Comic $TEMP converted succesfully"
 done
